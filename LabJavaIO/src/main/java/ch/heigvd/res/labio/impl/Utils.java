@@ -26,7 +26,9 @@ public class Utils {
     if(lines.contains("\r") || lines.contains("\n")) {
       while(lines.charAt(i) != '\r' && lines.charAt(i) != '\n'){i++;}
       i++;
-      if(lines.contains("\r\n"))++i;
+      if(lines.length() >= i+1) {
+        if (lines.substring(i-1, i + 1).contains("\r\n")) ++i;
+      }
       arrOfStr[0] = lines.substring(0, i);
       arrOfStr[1] = lines.substring(i, lines.length());
     }
